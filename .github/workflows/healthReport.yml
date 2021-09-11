@@ -1,11 +1,11 @@
-name: NjuHealthReport
+name: healthReport
 
 on:
-  push:
-    branches:
-      - master
+#  push:
+#    branches:
+#      - master
   schedule:
-    - cron: '30 6 * * *' # GMT+8 14:30
+    - cron: '30 11 * * *' # GMT+8 19:30
   workflow_dispatch: # add manually button
 
 jobs:
