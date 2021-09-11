@@ -1,0 +1,31 @@
+name: healthReport
+
+on:
+  schedule:
+    - cron: '0 9,11 * * *' # 东八区时间 (GMT+8) 的 17:00、19:00
+  workflow_dispatch: # add manually button
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'deleted'
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
+      - name: Run Spider
+        env:
+          DATA: ${{ secrets.DATA }}
+        run: |
+          python health_report_helper/main.py
