@@ -22,7 +22,7 @@ Fork 本项目: [zhangt2333/actions-NjuHealthReport](https://github.com/zhangt23
     'username': 'fill-it',  # 学号
     'password': 'fill-it',  # 密码
     'location': 'fill-it',  # 地址, 如 中国xx省xx市xx区xxxx
-    'deadline': '2021-10-05', # 填报截止日期，超过该填则停止填报并报错到 actions，开区间
+    'deadline': '2021-10-05', # 填报截止日期，超过该天则停止填报并报错到 actions，开区间
 
     'none': 'none'
 }
