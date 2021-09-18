@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 # Copyright 2020 zhangt2333. All Rights Reserved.
 # Author-Github: github.com/zhangt2333
-# spider.py.py 2021/9/11 13:01
+# spider.py 2021/9/11 13:01
 import json
 import requests
 import config

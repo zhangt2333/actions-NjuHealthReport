@@ -4,7 +4,7 @@
 
 ## 简介
 
-每天 19:30 GMT+8 自动完成体温上报，如想修改定时运行的时间，可修改 `.github/workflows/healthReport.yml` 中 `schedule` 属性。
+每天 7:00, 19:00 GMT+8 自动完成健康填报，如想修改定时运行的时间，可修改 `.github/workflows/healthReport.yml` 中 `schedule` 属性。
 
 **如果当日有异常，请手动在 APP 端填写！！！！！！！！！！！！**
 
@@ -37,6 +37,11 @@ Fork 本项目: [zhangt2333/actions-NjuHealthReport](https://github.com/zhangt23
 将填好的参数加入到 Secrets 中，name 为 `DATA`，value 为步骤 2 中的多行字符串
 
 ![image-20210216140557947](README/image-20210216140557947.png)
+
+### 5. 配置自己账号的邮件提醒
+
+如下图正确配置，这样运行失败的 Github Actions 事件会自动邮件通知你
+![](README/img5.png)
 
 ## 为多人打卡
 
