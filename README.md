@@ -53,3 +53,7 @@ Fork 本项目: [zhangt2333/actions-NjuHealthReport](https://github.com/zhangt23
           python health_report_helper/main.py "${{ secrets.DATA }}"
           python health_report_helper/main.py "${{ secrets.DATA2 }}"
 ```
+
+# License
+
+MIT：被授权人有权利在软件和软件的所有副本中包含版权声明和许可声明的前提下，使用、复制、修改、合并、出版发行、散布、再授权及贩售软件及软件的副本。授权人不为被授权人行为承担任何责任，且无义务对著作进行更新。
