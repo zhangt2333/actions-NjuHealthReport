@@ -7,6 +7,7 @@ import json
 import re
 import sys
 import logging
+import time
 
 import config
 import spider
@@ -18,4 +19,11 @@ if __name__ == '__main__':
     if utils.get_GMT8_timestamp() > utils.str_to_timestamp(config.data['deadline'], '%Y-%m-%d'):
         logging.info("超出填报日期")
         exit(-1)
-    spider.main(config.data['username'], config.data['password'], config.data['location'])
+    # retry mechanism
+    for _ in range(5):
+        try:
+            spider.main(config.data['username'], config.data['password'], config.data['location'])
+            break
+        except Exception as e:
+            logging.exception(e)
+            time.sleep(5)

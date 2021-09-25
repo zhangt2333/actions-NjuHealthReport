@@ -23,7 +23,7 @@ def get_apply_list(cookies):
         return data['data']
     except Exception as e:
         logging.exception(e)
-        exit(-1)
+        raise e
 
 
 def do_apply(cookies, WID, location):
@@ -45,7 +45,7 @@ def do_apply(cookies, WID, location):
             raise Exception('健康填报失败')
     except Exception as e:
         logging.exception(e)
-        exit(-1)
+        raise e
 
 
 def main(username, password, location):
@@ -54,7 +54,6 @@ def main(username, password, location):
     # 获取填报列表
     apply_list = get_apply_list(cookies)
     if not apply_list[0]['TBRQ'] == utils.get_GMT8_str('%Y-%m-%d'):
-        logging.info('当日健康填报未发布')
-        exit(-1)
+        raise Exception("当日健康填报未发布")
     # 填报当天
     do_apply(cookies, apply_list[0]['WID'], location)

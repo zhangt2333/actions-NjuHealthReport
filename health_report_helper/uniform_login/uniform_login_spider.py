@@ -48,8 +48,7 @@ def login(username, password, to_url):
             return response.cookies
         raise Exception("login error")
     except execution as e:
-        print(e)
-        exit(-1)
+        raise e
 
 
 def getLoginCasData(url):
@@ -69,8 +68,7 @@ def getLoginCasData(url):
             pwdDefaultEncryptSalt = re.findall('id="pwdDefaultEncryptSalt" value="(.*?)"', response.text)[0]
             return lt, dllt, execution, _eventId, rmShown, pwdDefaultEncryptSalt, response.cookies
     except Exception as e:
-        print(e)
-        exit(-1)
+        raise e
 
 
 HEADERS_LOGIN = {
