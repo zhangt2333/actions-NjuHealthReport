@@ -4,6 +4,14 @@
 # Author-Github: github.com/zhangt2333
 # config.py 2021/9/11 13:01
 
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s\t%(levelname)s\t%(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    # filename='../../../log/log.txt'
+)
+
 # The data you need to fill
 data = {
     # fill them:

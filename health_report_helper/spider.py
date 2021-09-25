@@ -6,6 +6,7 @@
 import json
 import requests
 import config
+import logging
 
 from uniform_login.uniform_login_spider import login
 import utils
@@ -21,7 +22,7 @@ def get_apply_list(cookies):
         data = json.loads(response.text)
         return data['data']
     except Exception as e:
-        print(e)
+        logging.exception(e)
         exit(-1)
 
 
@@ -43,7 +44,7 @@ def do_apply(cookies, WID, location):
         if not (response.status_code == 200 and '成功' in response.text):
             raise Exception('健康填报失败')
     except Exception as e:
-        print(e)
+        logging.exception(e)
         exit(-1)
 
 
@@ -53,7 +54,7 @@ def main(username, password, location):
     # 获取填报列表
     apply_list = get_apply_list(cookies)
     if not apply_list[0]['TBRQ'] == utils.get_GMT8_str('%Y-%m-%d'):
-        print('当日健康填报未发布')
+        logging.info('当日健康填报未发布')
         exit(-1)
     # 填报当天
     do_apply(cookies, apply_list[0]['WID'], location)
