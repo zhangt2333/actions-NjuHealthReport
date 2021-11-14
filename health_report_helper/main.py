@@ -25,5 +25,7 @@ if __name__ == '__main__':
             spider.main(config.data['username'], config.data['password'], config.data['location'])
             break
         except Exception as e:
+            if _ == 4:
+                raise e
             logging.exception(e)
             time.sleep(5)
