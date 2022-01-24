@@ -4,25 +4,28 @@
 
 ## 简介
 
-每天 7:00, 19:00 GMT+8 自动完成健康填报，如想修改定时运行的时间，可修改 `.github/workflows/healthReport.yml` 中 `schedule` 属性。
+每天 12:00, 19:00 GMT+8 自动完成健康填报，如想修改定时运行的时间，可修改 `.github/workflows/healthReport.yml` 中 `schedule` 属性。
 
-**如果当日有异常，请手动在 APP 端填写！！！！！！！！！！！！**
+请先手动在 App 填报一次，之后将默认取昨天的地址进行填报。
+
+**如果当日有信息异常或地点更改，请手动在 APP 端填写！！！！！！！！！！！！**
+
+请勿将本项目用于学习以外的用途。
 
 ## Github Actions 启用步骤
 
 ### 1. Fork 本项目
 
-Fork 本项目: [zhangt2333/actions-NjuHealthReport](https://github.com/zhangt2333/actions-NjuHealthReport) (Star 自然是更好)
+Fork 本项目: [actions-NjuHealthReport](https://github.com/zhangt2333/actions-NjuHealthReport) (Star 自然是更好)
 
 ### 2. 准备需要的参数
 
 ```
 {
     # fill them:
-    'username': 'fill-it',  # 学号
-    'password': 'fill-it',  # 密码
-    'location': 'fill-it',  # 地址, 如 中国xx省xx市xx区xxxx
-    'deadline': '2021-10-05', # 填报截止日期，超过该天则停止填报并报错到 actions，开区间
+    'username': '学号', # 把单引号内的 "学号" 改成自己的学号
+    'password': '密码', # 把单引号内的 "密码" 改成自己的统一认证密码
+    'deadline': '2021-10-05', # 这里填报截止日期（开区间），超过该天则停止填报并报错
 
     'none': 'none'
 }

@@ -43,17 +43,26 @@ def do_apply(cookies, WID, location):
         )
         if not (response.status_code == 200 and '成功' in response.text):
             raise Exception('健康填报失败')
+        logging.info("填报成功")
     except Exception as e:
         logging.exception(e)
         raise e
 
 
-def main(username, password, location):
+def main(username, password):
     # 登录
     cookies = login(username, password, 'http://ehallapp.nju.edu.cn/xgfw/sys/yqfxmrjkdkappnju/apply/getApplyInfoList.do')
     # 获取填报列表
     apply_list = get_apply_list(cookies)
     if not apply_list[0]['TBRQ'] == utils.get_GMT8_str('%Y-%m-%d'):
         raise Exception("当日健康填报未发布")
+    try:
+        if apply_list[0].get('CURR_LOCATION') is not None:
+            location = apply_list[0].get('CURR_LOCATION')
+        elif apply_list[1].get('CURR_LOCATION') is not None:
+            location = apply_list[1].get('CURR_LOCATION')
+    except Exception as e:
+        logging.exception(e, '取昨日地址错误, 请手动在App填报一次')
+        raise e
     # 填报当天
     do_apply(cookies, apply_list[0]['WID'], location)

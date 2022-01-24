@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # retry mechanism
     for _ in range(5):
         try:
-            spider.main(config.data['username'], config.data['password'], config.data['location'])
+            spider.main(config.data['username'], config.data['password'])
             break
         except Exception as e:
             if _ == 4:
