@@ -30,3 +30,4 @@ jobs:
       - name: Run Spider
         run: |
           python health_report_helper/main.py "${{ secrets.DATA }}"
+          python health_report_helper/main.py "${{ secrets.DATA2 }}"
