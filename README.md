@@ -4,7 +4,7 @@
 
 ## 简介
 
-每天 17:00, 19:00 GMT+8 自动完成健康填报，如想修改定时运行的时间，可修改 `.github/workflows/healthReport.yml` 中 `schedule` 属性。
+每天 17:00, 19:00 GMT+8 触发健康填报任务。健康填报将在任务触发后500s~1500s（随机时间）内完成，以避免被判定为自动打卡。如想修改定时运行的时间，可修改 `.github/workflows/healthReport.yml` 中 `schedule` 属性。
 
 **如果当日有异常，请手动在 APP 端填写！！！！！！！！！！！！**
 
