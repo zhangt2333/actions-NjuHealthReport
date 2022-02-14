@@ -25,15 +25,15 @@ if __name__ == '__main__':
     for _ in range(5):
         try:
             random.seed(datetime.now())
-            sleeptime=random.randint(500,1500)
-            logging.info("任务触发(UTC时间)：")
-            logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-            logging.info("延时:"+str(sleeptime)+"秒")
-            time.sleep(sleeptime)
-            logging.info("开始打卡(UTC时间)：")
-            logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-            spider.main(config.data['username'], config.data['password'], config.data['location'])
+            sleep_time = random.randint(500, 1000)
+            logging.info("任务触发时间 (GMT+8): " + utils.get_GMT8_str('%Y-%m-%d %H:%M:%S'))
+            logging.info("延时:" + str(sleep_time) + "秒")
+            time.sleep(sleep_time)
+            logging.info("开始打卡时间 (GMT+8): " + utils.get_GMT8_str('%Y-%m-%d %H:%M:%S'))
+            spider.main(config.data['username'], config.data['password'])
             break
         except Exception as e:
+            if _ == 4:
+                raise e
             logging.exception(e)
             time.sleep(5)
