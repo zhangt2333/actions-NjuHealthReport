@@ -26,7 +26,11 @@ if __name__ == '__main__':
         try:
             random.seed(datetime.now())
             sleeptime=random.randint(10,19)
-            logging.info(str(sleeptime))
+            logging.info("任务触发(UTC时间)：")
+            logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            logging.info("延时:"+str(sleeptime)+"秒")
+            logging.info("开始打卡(UTC时间)：")
+            logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             spider.main(config.data['username'], config.data['password'], config.data['location'])
             break
         except Exception as e:
