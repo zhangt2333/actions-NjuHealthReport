@@ -25,7 +25,7 @@ if __name__ == '__main__':
     for _ in range(5):
         try:
             random.seed(datetime.now())
-            sleeptime=random.randint(10,19)
+            sleeptime=random.randint(500,1500)
             logging.info("任务触发(UTC时间)：")
             logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             logging.info("延时:"+str(sleeptime)+"秒")
