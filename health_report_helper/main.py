@@ -8,6 +8,8 @@ import re
 import sys
 import logging
 import time
+import random
+from datetime import datetime
 
 import config
 import spider
@@ -22,6 +24,9 @@ if __name__ == '__main__':
     # retry mechanism
     for _ in range(5):
         try:
+            random.seed(datetime.now())
+            sleeptime=random.randint(10,19)
+            logging.info(str(sleeptime))
             spider.main(config.data['username'], config.data['password'], config.data['location'])
             break
         except Exception as e:
