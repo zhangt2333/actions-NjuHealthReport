@@ -29,6 +29,7 @@ if __name__ == '__main__':
             logging.info("任务触发(UTC时间)：")
             logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             logging.info("延时:"+str(sleeptime)+"秒")
+            time.sleep(sleeptime)
             logging.info("开始打卡(UTC时间)：")
             logging.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             spider.main(config.data['username'], config.data['password'], config.data['location'])
